@@ -1,0 +1,180 @@
+#tags_user_likes{
+    margin-top:25px;
+    margin:0 auto;
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+#greetings{
+    color: black;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.profile_modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 3% auto; /* 15% from the top and centered */
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 8px;
+}
+
+#modal-text{
+font-size : 20px !important;
+}
+
+#modal-header{
+font-size : 20px !important;
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+#background-image{
+ position:fixed;
+ z-index:-1;
+ padding:0;
+ margin:0;
+ top:0;
+ left:0;
+ width: 100%;
+ height: 100%;
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+   /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+#player_button{
+margin-right: 15px;
+}
+
+#tooltip{
+margin-top: 10px;
+margin-right: 15px;
+}
+
+/* Tooltip text */
+#tooltip .tooltiptext {
+    visibility: hidden;
+  width: 250px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+#tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+* {
+  margin:0;
+  padding: 0;
+}
+
+html, body, #tags_user_likes {
+  width: 100%;
+  height: 100%;
+}
+
+#tags_user_likes{
+padding-top:56px;
+}
+
+@media screen and (max-width: 420px){
+
+* {
+  margin:0;
+  padding: 0;
+}
+
+html, body, #tags_user_likes {
+  width: 100%;
+  height: 100%;
+}
+
+#tags_user_likes{
+padding-top:56px;
+}
+
+#modal-text{
+font-size : 11px !important;
+}
+
+#modal-header{
+font-size : 12px !important;
+}
+
+.modal {
+  top: 56px;
+}
+.close{
+font-size:18px;
+}
+hr{
+margin-botton:0;
+margin-top:0;
+}
+#delete{
+font-size:11px;
+}
+}
