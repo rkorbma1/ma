@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+
+{% if current_user.id == 1 %}
+<h1>Hallo Admin</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">id</th>
+        </tr>
+    </thead>
+{% for id in id_list %}
+    <tr>
+        <td>{{ id }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endif %}
+</body>
+</html>
