@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/profile.css">
+    <title>User Profile</title>
+</head>
+<body onload=" get_profile_data();">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="btn btn-danger btn-sm" id="delete_all" role = "button" href="{{ url_for('home') }}"> Profil zurücksetzen <i class="far fa-trash-alt"></i></a>
+    <div class="collapse navbar-collapse" id="collapse_target">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+        <span class="navbar-text">Nutzer-ID {{ current_user.id }}</span>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-primary btn-sm" id="player_button" role = "button" href="{{ url_for('home') }}"> Audio Player <i class="fas fa-music"></i></a>
+        </li>
+    </ul>
+    </div>
+</nav>
+<div id="tags_user_likes"></div>
+
+<div class="container">
+    <div class="row">
+			<div class="col-sm-6">
+    		<div id="myModal" class="modal">
+  			<!-- Modal content -->
+  			<div class="modal-content">
+    			<span class="close">&times;</span>
+				<h4 id="modal-header">Löschen von gelikten Beiträgen: </h4>
+				<hr>
+    			<p id="modal-text"></p>
+                <button type="button" class="btn btn-outline-success btn-sm fas fa-thumbs-up" id="delete"> Ja ich möchte diesen Beitrag löschen!</button>
+                </div>
+
+			</div>
+</div>
+    </div>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../static/js/profile.js"></script>
+<script>
+$( document ).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+</body>
+</html>
