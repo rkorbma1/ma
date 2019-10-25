@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Content Based Recommender</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+</head>
+
+<body onload="first_entry()">
+	<div class="d-none d-lg-block">
+		<div class="bg-image" id="background-image">
+		</div>
+	</div>
+  <!-- PRESS THE MENU BUTTON TO TRIGGER ANIMATION -->
+<!-- PRESS PLAY BUTTON TO LISTEN THE DEMO SONG -->
+
+<!-- As seen on: "https://dribbble.com/shots/2144866-Day-5-Music-Player-Rebound/" -->
+
+<!-- THANK YOU! -->
+	<div class ='container-fluid'>
+		<div class="row no-gutters">
+			<div class="col-sm-6">
+	<article class="screen">
+		<input type="checkbox" value="None" id="magicButton" name="check" />
+  		<label class="main" for="magicButton"></label>
+
+
+		<img class="coverImage" id="cover_image">
+
+		<td><input type="checkbox" id="search" onclick=""/><label id="prof_button" class="search" for="search"></label></td>
+
+  		<div class="bodyPlayer"></div>
+
+				<div class="shadow"></div>
+				
+				<div class="bar"></div>
+				
+				<div class="info">
+					<h6 id="title"></h6>
+				</div>
+		<table class="list">
+    				<tr class="song">
+      					<td class="nr">
+							<h5>1</h5></td>
+						<td class="title"><h6 id="title_1"></h6></td>
+						<td><a type="checkbox" id="check_1" onclick="LikeAudio_table1()"/><label  id="heart1" class="fa fa-heart-o" for="check_1"></label></td>
+
+					</tr>
+
+					<tr class="song">
+						<td class="nr"><h5>2</h5></td>
+						<td class="title"><h6 id="title_2"></h6></td>
+						<td><a type="checkbox" id="check_2" onclick="LikeAudio_table2()"/><label  id="heart2" class="fa fa-heart-o" for="check_2"></label></td>
+					</tr>
+
+					<tr class="song">
+						<td class="nr"><h5>3</h5></td>
+						<td class="title"><h6 id="title_3"></h6></td>
+						<td><a type="checkbox" id="check_3" onclick="LikeAudio_table3()"/><label  id="heart3" class="fa fa-heart-o" for="check_3"></label></td>
+					</tr>
+
+					<tr class="song">
+						<td class="nr"><h5>4</h5></td>
+						<td class="title"><h6 id="title_4"></h6></td>
+						<td><a type="checkbox" id="check_4" onclick="LikeAudio_table4()"/><label  id="heart4" class="fa fa-heart-o" for="check_4"></label></td>
+					</tr>
+
+					<tr class="song">
+						<td class="nr"><h5>5</h5></td>
+						<td class="title"><h6 id="title_5"></h6></td>
+						<td><a type="checkbox" id="check_5" onclick="LikeAudio_table5()"/><label  id="heart5" class="fa fa-heart-o" for="check_5"></label></td>
+					</tr>
+
+					<tr class="song">
+						<td class="nr"><h5>6</h5></td>
+						<td class="title"><h6 id="title_6"></h6></td>
+						<td><a type="checkbox" id="check_6" onclick="LikeAudio_table6()"/><label  id="heart6" class="fa fa-heart-o" for="check_6"></label></td>
+					</tr>
+
+					<tr class="song">
+						<td class="nr"><h5>7</h5></td>
+						<td class="title"><h6 id="title_7"></h6></td>
+						<td><a type="checkbox" id="check_7" onclick="LikeAudio_table7()"/><label  id="heart7" class="fa fa-heart-o" for="check_7"></label></td>
+					</tr>
+
+					<tr class="song">
+						<td class="nr"><h5>8</h5></td>
+						<td class="title"><h6 id="title_8"></h6></td>
+						<td><a type="checkbox" id="check_8" onclick="LikeAudio_table8()"/><label  id="heart8" class="fa fa-heart-o" for="check_8"></label></td>
+					</tr>
+
+				</table>
+
+				<div class="shadow"></div>
+
+				<div class="bar"></div>
+
+				<audio id="audio" controls ontimeupdate="initProgressBar()">
+				</audio>
+				<table class="player">
+				  	<div class="player-progress" id="progress-bar">
+    			  		<span id="seek-obj-container">
+      						<progress id="seek-obj" value="0" max="1"></progress>
+    			  		</span>
+  				  	</div>
+					<td><input type="checkbox" id="backward" onclick="toggleBackwards()" /><label class="backward" for="backward"></label></td>
+					<td><input type="checkbox" id="play" title="Play" onclick="togglePlayPause()"/><label class="play" for="play"></label></td>
+					<td><input type="checkbox" id="forward" onclick="toggleForward();"><label class="forward" for="forward"></label></td>
+				</table>
+
+				<table class="footer">
+
+					<td><a type="checkbox" id="love" onclick="likeAudio()"/><label  id="heart" class="fa fa-heart-o" for="love"></label></td>
+
+					<td><a type="checkbox" id="questions" onclick="displayExplanations()"/><label class="questions" for="questions"></label></td>
+
+				</table>
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+  			<!-- Modal content -->
+  			<div class="modal-content">
+    			<span class="close">&times;</span>
+				<h4 id="modal-header">Erklärung: </h4>
+				<hr>
+    			<p id="modal-text"></p>
+  			</div>
+			</div>
+			<div class="ajax-loader">
+				<img src="{{url_for('static', filename='ajax-load.gif')}}" class="img-responsive" />
+			</div>
+		</article>
+			</div>
+		</div>
+	</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="../static/js/index.js"></script>
+</body>
+</html>
