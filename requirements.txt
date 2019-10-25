@@ -1,0 +1,15 @@
+numpy
+pandas
+flask==1.0.2
+werkzeug==0.14.1
+flask_login==0.4.1
+sqlalchemy==1.2.14
+Flask-WTF==0.14.2
+WTForms==2.2.1
+Flask-Migrate==2.5.2
+Flask-Login==0.4.1
+DateTime
+scikit-learn==0.20.1
+gensim==3.8.0
+scipy==1.2.0rc2
+dppy==0.2.0
