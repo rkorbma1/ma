@@ -1,0 +1,995 @@
+/* PRESS THE MENU BUTTON FOR ANIMATION */
+/* PRESS PLAY BUTTON TO LISTEN THE DEMO SONG */
+
+/* As seen on: "https://dribbble.com/shots/2144866-Day-5-Music-Player-Rebound/" */
+
+/* THANK YOU! */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+  background: grey;
+  padding: 0;
+  margin: 0;
+}
+
+#background-image{
+ position:fixed;
+ padding:0;
+ margin:0;
+ top:0;
+ left:0;
+ width: 100%;
+ height: 100%;
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+   /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+td{
+  text-align:center;
+}
+
+@keyframes harlem {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+  }
+  20% {
+    transform: scale(1.03, 1);
+    -webkit-transform: scale(1.03, 1);
+    -moz-transform: scale(1.03, 1);
+    -o-transform: scale(1.03, 1);
+    -ms-transform: scale(1.03, 1);
+  }
+  40% {
+    transform: scale(0.97, 1);
+    -webkit-transform: scale(0.97, 1);
+    -moz-transform: scale(0.97, 1);
+    -o-transform: scale(0.97, 1);
+    -ms-transform: scale(0.97, 1);
+  }
+  60% {
+    transform: scale(1.01, 1);
+    -webkit-transform: scale(1.01, 1);
+    -moz-transform: scale(1.01, 1);
+    -o-transform: scale(1.01, 1);
+    -ms-transform: scale(1.01, 1);
+  }
+  80% {
+    transform: scale(0.99, 1);
+    -webkit-transform: scale(0.99, 1);
+    -moz-transform: scale(0.99, 1);
+    -o-transform: scale(0.99, 1);
+    -ms-transform: scale(0.99, 1);
+  }
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+  }
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 2.5px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  color: #fff;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  line-height: 11px;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  color: #777;
+}
+
+h4 {
+  margin: 0 0 5px 29px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 14px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  color: #fff;
+}
+
+h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 13px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  color: #6d6d6d;
+}
+
+h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  line-height: 13px;
+  font-family: 'Open Sans';
+  text-indent:0px;
+  font-weight: 700;
+  color: #f0f0f0;
+}
+
+.screen {
+  float:left;
+  background-color: #fff;
+  height: 650px;
+  width: 366px;
+  position: absolute;
+  margin-left: 70%;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+  overflow:hidden;
+  top:5%;
+}
+
+#profile_user {
+  left:0;
+  background-color: white;
+  height: 650px;
+  width: 40%;
+  overflow:hidden;
+  position: absolute;
+  display:none;
+}
+
+#user_greeting{
+text-align:center;
+}
+
+#tags_user_likes{
+}
+
+.header {
+  display: inline-flex;
+  margin: 0 0 40px 0;
+}
+
+input[type=checkbox] {
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+a[type=checkbox]{
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  color: black;
+}
+
+label.main:before {
+  position: absolute;
+  top: 23px;
+  left: 23px;
+  font-family: FontAwesome;
+  content: '\f0c9';
+  color: black;
+  font-size: 16px;
+  line-height: 16px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease-in;
+}
+
+label.main:hover:before {
+  color: #bbb;
+}
+
+.screen > #magicButton:checked ~ label.main:before {
+  color: #ff564c;
+  transition: all 0.3s ease-in;
+}
+
+.coverImage {
+  background-size: cover;
+  width: 366px;
+  height: 366px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0% 0%;
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .coverImage {
+  transform: scale(0.251, 0.251);
+  left: 23px;
+  top: 60px;
+  transition: all 0.3s ease-in;
+  border-radius: 20px;
+}
+
+.search:before{
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  font-family: FontAwesome;
+  content: '\f007';
+  color: black;
+  font-size: 16px;
+  line-height: 16px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease-in;
+}
+
+.bodyPlayer {
+  position: absolute;
+  top: 366px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  height: 286px;
+  width: 366px;
+  background: #111;
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .bodyPlayer {
+  height: 470px;
+  left: 0;
+  top: 180px;
+  transition: all 0.3s ease-in;
+}
+
+.list {
+  border-spacing: 0px 2px;
+  width: 342px;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 378px;
+  left: 12px;
+  transform-origin: 0% 0%;
+  transform: scale(0.1, 0.1);
+  transition: all 0.3s ease-in;
+}
+
+.list tr {
+  transform-origin: 0% 50%;
+  height: 50px;
+  text-align: center;
+  background: #1d1d1d;
+  text-indent: 8px;
+}
+
+.list tr:hover {
+  background: #222;
+  cursor: pointer;
+}
+
+.title {
+  width: 215px;
+  text-align: left;
+  text-indent: 15px;
+  transition: all 0.11s ease-in;
+}
+
+.list tr:hover .title {
+  padding-left: 5px;
+  width: 210px;
+  transition: all 0.11s ease-in;
+}
+
+.screen > #magicButton:checked ~ .list {
+  top: 192px;
+  left: 12px;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1, 1);
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ table tr:nth-child(1) {
+  opacity: 1;
+  animation: harlem 0.3s linear forwards;
+  animation-delay: 0.185s;
+}
+
+.screen > #magicButton:checked ~ table tr:nth-child(2) {
+  animation: harlem 0.3s linear forwards;
+  animation-delay: 0.2s;
+}
+
+.screen > #magicButton:checked ~ table tr:nth-child(3) {
+  animation: harlem 0.3s linear forwards;
+  animation-delay: 0.215s;
+}
+
+.screen > #magicButton:checked ~ table tr:nth-child(4) {
+  animation: harlem 0.3s linear forwards;
+  animation-delay: 0.23s;
+}
+
+.screen > #magicButton:checked ~ table tr:nth-child(5) {
+  animation: harlem 0.3s linear forwards;
+  animation-delay: 0.245s;
+}
+
+.screen > #magicButton:checked ~ table tr:nth-child(6) {
+  animation: harlem 0.3s linear forwards;
+  animation-delay: 0.26s;
+}
+
+.screen > #magicButton:checked ~ table tr:nth-child(7) {
+  animation: harlem 0.3s linear forwards;
+  animation-delay: 0.275s;
+}
+
+.screen > #magicButton:checked ~ table tr:nth-child(8) {
+  animation: harlem 0.3s linear forwards;
+  animation-delay: 0.29s;
+}
+
+.screen > #magicButton:checked ~ table tr:nth-child(9) {
+  animation: harlem 0.3s linear forwards;
+  animation-delay: 0.305s;
+}
+
+label.zmr:before {
+  font-family: FontAwesome;
+  content: "\f08a";
+  color: #777;
+  font-size: 15px;
+  line-height: 15px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.15s linear;
+}
+
+#heart1{
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: red;
+  display:none;
+}
+
+#heart2{
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: red;
+  display:none;
+}
+#heart3{
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: red;
+  display:none;
+}
+#heart4{
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: red;
+  display:none;
+}
+#heart5{
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: red;
+  display:none;
+}
+#heart6{
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: red;
+  display:none;
+}
+#heart7{
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: red;
+  display:none;
+}
+
+#heart8{
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: red;
+  display:none;
+}
+.info {
+  position: absolute;
+  text-align:center;
+  margin-left: 5%;
+  margin-right: 5%;
+  top: 420px;
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .player-progress {
+  bottom: 17px;
+  top: unset;
+  right: 5px;
+  width: 70%;
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .info {
+  top: 66px;
+  left: 126px;
+  text-align: left;
+  transition: all 0.3s ease-in;
+
+}
+
+.screen > #magicButton:checked ~ .info h6 {
+  margin-left: 0;
+  font-size: 13px;
+  color: black;
+  transition: all 0.3s ease-in;
+}
+
+.player {
+  background: none;
+  text-align: center;
+  font-family: FontAwesome;
+  color: #fff;
+  font-size: 26px;
+  line-height: 26px;
+  width: 216px;
+  height: 35px;
+  position: absolute;
+  bottom: 100px;
+  left: 48%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  transition: all 0.3s ease-in;
+  border-spacing: 0;
+}
+
+
+.player td {
+  width: 72px;
+}
+
+.backward:before {
+  content: "\f1da";
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+.play:before {
+  content: "\f04b";
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+.forward:before {
+  content: "\f04e";
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+.backward:hover:before {
+  color: #bbb;
+  transition: all 0.15s linear;
+}
+
+.play:hover:before {
+  color: #bbb;
+  transition: all 0.15s linear;
+}
+
+.forward:hover:before {
+  color: #bbb;
+  transition: all 0.15s linear;
+}
+
+td > #play:checked ~ label.play:before {
+  content: "\f04c";
+  transition: all 0.15s linear;
+}
+
+.screen > #magicButton:checked ~ .player {
+  bottom: 4px;
+  left: -44px;
+  transform: scale(0.45, 0.45);
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .player-controls scrubber {
+  bottom: 4px;
+  left: -44px;
+  transform: scale(0.45, 0.45);
+  transition: all 0.3s ease-in;
+}
+
+.shadow {
+  background: rgba(17, 17, 17, 0.8);
+  width: 366px;
+  height: 50px;
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  box-shadow: 0px -15px 40px rgba(17, 17, 17, 0.8);
+}
+
+.footer {
+  background: none;
+  font-family: FontAwesome;
+  color: #6d6d6d;
+  font-size: 15px;
+  line-height: 15px;
+  height: 45px;
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right:0;
+  z-index: 20;
+  transition: all 0.15s linear;
+  transition: bottom 0.3s linear;
+}
+
+#heart {
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: red;
+}
+
+.shuffle:before {
+  content: "\f074";
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+.repeat:before {
+  content: "\f01e";
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+.options:before {
+  color: black;
+  position:right;
+  content: "\f141";
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+.exit:before {
+  color: grey;
+  position:right;
+  content: "\f08b";
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+.questions:before {
+  color: grey;
+  position:right;
+  content: "\f059";
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+#heart:hover:before {
+  color: #ff564c;
+  transition: all 0.15s linear;
+}
+
+.options:hover:before {
+  color: #bbb;
+  transition: all 0.15s linear;
+}
+
+.questions:hover:before {
+  color: #bbb;
+  transition: all 0.15s linear;
+}
+
+
+.exit:hover:before {
+  color: #bbb;
+  transition: all 0.15s linear;
+}
+
+td > #shuffle:checked ~ label.shuffle:before {
+  color: #ff564c;
+  transition: all 0.15s linear;
+}
+
+td > #repeat:checked ~ label.repeat:before {
+  color: #ff564c;
+  transition: all 0.15s linear;
+}
+
+.screen > #magicButton:checked ~ .footer {
+  bottom: -60px;
+  transition: all 0.3s ease-in;
+}
+
+.current {
+  position: absolute;
+  right: 23px;
+  bottom: -60px;
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .current {
+  bottom: 17px;
+  transition: all 0.3s ease-in;
+}
+
+audio {
+  visibility: hidden;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 11; /* Sit on top */
+  width: 365.990px; /* Full width */
+  height: 650px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 3% auto; /* 15% from the top and centered */
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 8px;
+  z-index: 11;
+}
+
+#modal-text{
+font-size : 20px !important;
+}
+
+#myModal{
+z-index: 20;
+display: block;
+top:0;
+display: none;
+}
+
+#modal-header{
+font-size : 20px !important;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* The Close Button */
+.close_profile {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close_profile:hover,
+.close_profile:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+#modal-header{
+  padding-top: 15px;
+  color: black;
+}
+
+progress {
+      width: 90%;
+    }
+
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  height: 5px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid lighten(#acacac, 20%);
+  color: #ff564c;
+}
+
+progress::-webkit-progress-value {
+  background-color: #ff564c;}
+
+p {
+  font-size: 1.6rem;
+}
+
+.player-progress{
+position:absolute;
+width: 100%;
+text-align:center;
+top: 465px;
+transition: all 0.3s ease-in;
+}
+
+#start-time{
+display: none;
+color: white;
+}
+
+#end-time{
+display: none;
+color: white;
+}
+
+#seek-obj{
+width: 80%
+}
+
+.fa fa-heart{
+  color: red !important;
+}
+
+.ajax-loader {
+  visibility:hidden;
+  position: absolute;
+  z-index: +100 !important;
+  height: 650px;
+  width: 366px;
+  top:0;
+}
+
+.ajax-loader img {
+  width:125px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 50%;
+}
+
+@media screen and (max-width: 420px){
+
+#background-image{
+  visibility: hidden;
+}
+.screen {
+  background-color: #fff;
+  position: fixed;
+  margin-left:0;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  }
+
+#background-image{
+  visibility: hidden;
+}
+
+.coverImage {
+  background-size: cover;
+  width: 100%;
+  height: 56.3%;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0% 0%;
+  transition: all 0.3s ease-in;
+}
+
+.info {
+  position: absolute;
+  text-align:center;
+  margin-left: 5%;
+  margin-right: 5%;
+  top: 64.615%;
+  transition: all 0.3s ease-in;
+}
+
+
+.bodyPlayer {
+  position: absolute;
+  top: 56.3%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  height: 44%;
+  width: 100%;
+  background: #111;
+  transition: all 0.3s ease-in;
+}
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  & > [class^="col-"],
+  & > [class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+.screen > #magicButton:checked ~ .info {
+  top: 10.153%;
+  left: 34.42%;
+  text-align: left;
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .coverImage {
+  transform: scale(0.251, 0.251);
+  left: 6.284%;
+  top: 9.23%;
+  transition: all 0.3s ease-in;
+  border-radius: 20px;
+}
+
+.screen > #magicButton:checked ~ .info h6 {
+  margin-left: 0;
+  font-size: 11px;
+  color: black;
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .list {
+  top: 29.54%;
+  left: 3.28%;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1, 1);
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .bodyPlayer {
+  height: 72.3%;
+  left: 0;
+  top: 27.7%;
+  transition: all 0.3s ease-in;
+}
+
+.list {
+  border-spacing: 0px 2px;
+  width: 93.5%;
+  height: 61.53%;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 378px;
+  left: 12px;
+  transform-origin: 0% 0%;
+  transform: scale(0.1, 0.1);
+  transition: all 0.3s ease-in;
+}
+
+.list tr {
+  transform-origin: 0% 50%;
+  height: 12.5%;
+  text-align: center;
+  background: #1d1d1d;
+  text-indent: 8px;
+}
+
+h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 9px;
+  line-height: 13px;
+  font-family: 'Open Sans';
+  text-indent:0px;
+  font-weight: 700;
+  color: #f0f0f0;
+}
+h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  line-height: 13px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  color: #6d6d6d;
+}
+
+.player-progress{
+position:absolute;
+width: 100%;
+text-align:center;
+top: 71.54%;
+transition: all 0.3s ease-in;
+}
+
+.player {
+  background: none;
+  text-align: center;
+  font-family: FontAwesome;
+  color: #fff;
+  font-size: 26px;
+  line-height: 26px;
+  width: 59.01%;
+  height: 5.4%;
+  position: absolute;
+  bottom: 15.38%;
+  left: 48%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  transition: all 0.3s ease-in;
+  border-spacing: 0;
+}
+
+.footer {
+  background: none;
+  font-family: FontAwesome;
+  color: #6d6d6d;
+  font-size: 15px;
+  line-height: 15px;
+  height: 45px;
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right:0;
+  z-index: 20;
+  transition: all 0.15s linear;
+  transition: bottom 0.3s linear;
+}
+
+.screen > #magicButton:checked ~ .player-progress {
+  bottom: 2.615%;
+  top: unset;
+  right: 1.36%;
+  width: 70%;
+  transition: all 0.3s ease-in;
+}
+
+.screen > #magicButton:checked ~ .player {
+  bottom: 0.615%;
+  left: -12.02%;
+  transform: scale(0.45, 0.45);
+  transition: all 0.3s ease-in;
+}
+.player td {
+  width: 19.7%;
+}
+.screen > #magicButton:checked ~ .player-controls scrubber {
+  bottom: 0.615%;
+  left: -12.02%;
+  transform: scale(0.45, 0.45);
+  transition: all 0.3s ease-in;
+}
+
+}
