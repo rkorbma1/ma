@@ -1,7 +1,7 @@
 numpy
 pandas
 flask==1.0.2
-werkzeug==0.14.1
+werkzeug==0.15.5
 flask_login==0.4.1
 sqlalchemy==1.2.14
 Flask-WTF==0.14.2
